@@ -8,31 +8,20 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      CI: "true"   # کلید جلوگیری از promptهای تعاملی
-
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.13'
 
-      - name: Install dependencies
+      - name: Install flet
         run: pip install flet
 
-      # ---------- مهم‌ترین قدم ----------
-      - name: Install Flutter SDK (non-interactive)
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.27.1'
-          channel: 'stable'
-
-      # ---------------------------------
       - name: Build APK
         run: |
-          flet build apk \
+          echo "y" | flet build apk \
             --android-permissions INTERNET \
             --build-version 1.0.0 \
             --build-number 1
