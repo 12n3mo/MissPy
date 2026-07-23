@@ -1,0 +1,5 @@
+[project]
+name = "Cipher"
+org_name = "com.misspy.cipher"
+version = "1.0.0"
+description = "Secure Password Generator"
