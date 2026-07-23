@@ -22,7 +22,6 @@ jobs:
       - name: Build APK
         run: |
           echo "y" | flet build apk \
-            --android-permissions INTERNET \
             --build-version 1.0.0 \
             --build-number 1
 
